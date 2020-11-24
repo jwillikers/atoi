@@ -161,6 +161,15 @@ Receiving objects: 100% (2450/2450), 553.27 KiB | 3.57 MiB/s, done.
 Resolving deltas: 100% (1140/1140), done.
 ----
 
+. Install the necessary dependencies to build Python which are helpfully documented in the https://github.com/pyenv/pyenv/wiki#suggested-build-environment[Pyenv Wiki].
++
+[source,sh]
+----
+➜ sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils \
+  tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+----
+
 . Before installing Pipenv, configure the default _global_ Python version for the user.
 +
 --
@@ -198,15 +207,6 @@ Install the Python package `python-is-python3` to install a `python` executable 
 ----
 
 ** Or, you can use another version of Python for your user such as the latest and greatest version.
-
-... Install the necessary dependencies to build Python which are helpfully documented in the https://github.com/pyenv/pyenv/wiki#suggested-build-environment[Pyenv Wiki].
-+
-[source,sh]
-----
-➜ sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
-  libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils \
-  tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-----
 
 ... Build and install the latest version of Python.
 +
