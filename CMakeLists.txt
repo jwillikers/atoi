@@ -72,6 +72,10 @@ set(Python_FIND_VIRTUALENV
     STANDARD
     CACHE STRING "")
 
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS no)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
+
 add_subdirectory(dependencies)
 
 add_subdirectory(src)

@@ -1,9 +1,5 @@
 include(GenerateExportHeader)
 
-set(CMAKE_CXX_VISIBILITY_PRESET hidden)
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS no)
-set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
-
 add_library(atoi)
 add_library(atoi::atoi ALIAS atoi)
 generate_export_header(atoi EXPORT_FILE_NAME
@@ -11,7 +7,8 @@ generate_export_header(atoi EXPORT_FILE_NAME
 target_include_directories(
   atoi
   INTERFACE $<BUILD_INTERFACE:${ATOI_GENERATED_INCLUDEDIR}>
-  PRIVATE ${ATOI_GENERATED_INCLUDEDIR})
+            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+  PRIVATE ${ATOI_GENERATED_INCLUDEDIR} ${CMAKE_SOURCE_DIR}/include)
 target_sources(atoi PRIVATE atoi.c)
 target_compile_options(
   atoi

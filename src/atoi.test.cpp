@@ -1,6 +1,6 @@
+#include <atoi/atoi.h>
 #include <boost/ut.hpp>
 #include <string_view>
-#include "atoi.h"
 
 int main() {
     using namespace boost::ut;
