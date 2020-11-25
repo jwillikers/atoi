@@ -35,6 +35,7 @@ set(CMAKE_C_STANDARD_REQUIRED yes CACHE BOOL "")
 set(CMAKE_CXX_EXTENSIONS no CACHE BOOL "")
 set(CMAKE_CXX_STANDARD 20 CACHE STRING "")
 set(CMAKE_CXX_STANDARD_REQUIRED yes CACHE BOOL "")
+set(ATOI_GENERATED_INCLUDEDIR "${PROJECT_BINARY_DIR}/generated/include" CACHE PATH "The include directory for generated header files.")
 
 # This is necessary for CMake to detect executables within the Python virtual environment for the project.
 set(Python_FIND_VIRTUALENV STANDARD CACHE STRING "")
