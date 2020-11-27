@@ -318,11 +318,57 @@ _ZSH_::
 done! ✨ 🌟 ✨
 ----
 
-. Add asdf plugins for direnv, CMake, ccache, and Ninja.
+. Add completions for Pipenv to your shell.
++
+--
+_fish_::
 +
 [source,sh]
 ----
-➜ asdf plugin add ccache cmake direnv ninja
+➜ echo "eval (pipenv --completion)" > ~/.config/fish/completions/pipenv.fish
+----
+
+_Bash_::
++
+[source,bash]
+----
+➜ echo 'eval "$(pipenv --completion)"' >> ~/.bashrc
+----
+
+_ZSH_::
++
+[source,zsh]
+----
+➜ echo 'eval "$(pipenv --completion)"' >> ~/.zshrc
+----
+--
+
+. Add the asdf ccache plugin.
++
+[source,sh]
+----
+➜ asdf plugin add ccache
+----
+
+. Add the asdf CMake plugin.
++
+[source,sh]
+----
+➜ asdf plugin add cmake
+----
+
+. Add the asdf direnv plugin.
++
+[source,sh]
+----
+➜ asdf plugin add direnv
+----
+
+. Add the asdf Ninja plugin.
++
+[source,sh]
+----
+➜ asdf plugin add ninja
 ----
 
 . Integrate direnv with your shell.
@@ -386,31 +432,6 @@ NOTE: The `direnvrc` file should only use Bash syntax.
 ----
 ➜ direnv allow
 ----
-
-. Add completions for Pipenv to your shell.
-+
---
-_fish_::
-+
-[source,sh]
-----
-➜ echo "eval (pipenv --completion)" > ~/.config/fish/completions/pipenv.fish
-----
-
-_Bash_::
-+
-[source,bash]
-----
-➜ echo 'eval "$(pipenv --completion)"' >> ~/.bashrc
-----
-
-_ZSH_::
-+
-[source,zsh]
-----
-➜ echo 'eval "$(pipenv --completion)"' >> ~/.zshrc
-----
---
 
 == Build
 
