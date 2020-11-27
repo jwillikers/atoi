@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9aff0de7119403053a2eb8bfa5bc26567aac13046ae8852b7cd6d1b340a183aa"
+            "sha256": "ec245aae2642bd297bc14e8fc0ee488e671ee672e417b8e2a11ae5502864b5af"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,13 +16,6 @@
         ]
     },
     "default": {
-        "clang-format": {
-            "hashes": [
-                "sha256:085342f9e238c9b03a019e20ec23f242f8795a3cca9296ab2427b1dea45e7014"
-            ],
-            "index": "pypi",
-            "version": "==9.0.0"
-        },
         "cmakelang": {
             "extras": [
                 "yaml"

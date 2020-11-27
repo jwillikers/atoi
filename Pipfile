@@ -7,7 +7,6 @@ verify_ssl = true
 
 [packages]
 cmakelang = {extras = ["yaml"], version = "*"}
-clang-format = "*"
 
 [requires]
 python_version = "3.9"
