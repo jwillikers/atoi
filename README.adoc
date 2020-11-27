@@ -14,8 +14,33 @@ A sample implementation of the standard C library's https://en.cppreference.com/
 
 == Getting Started
 
+This sections describes how to setup the build environment required by the project.
+This project has been tested with the {cpp} compilers from GCC 10 and Clang 11 on https://ubuntu.com/[Ubuntu] 20.10.
+Install at least one of these compilers with the following commands.
+
+GCC 10::
++
+[source,sh]
+----
+➜ sudo apt -y install gcc g++
+----
+
+Clang 11::
++
+[source,sh]
+----
+➜ sudo apt -y install clang-11 lld
+----
+
+=== asdf
+
+The preferred method of installing build dependencies is with https://asdf-vm.com/[asdf].
+This ensures that the proper versions of the necessary tools are installed.
+Pipenv is used to manage Python tools.
+Combining asdf and Pipenv with https://direnv.net/[direnv] allows automatically configuring and loading a Python virtual environment upon entering the project directory.
+
 The steps below will create an environment for building the project.
-These steps assume you are on https://ubuntu.com/[Ubuntu] and familiar with the Linux command-line and https://git-scm.com/[Git].
+These steps assume you are on Ubuntu and familiar with the Linux command-line and https://git-scm.com/[Git].
 Instructions are provided for the https://www.gnu.org/software/bash/[Bash], https://fishshell.com/[fish], and https://www.zsh.org/[ZSH] shells.
 
 . Clone the project's repository from GitHub.
@@ -435,15 +460,95 @@ NOTE: The `direnvrc` file should only use Bash syntax.
 
 == Build
 
-. From the root of the project directory, create a build directory aptly named _build_ and perform the initial configuration for CMake.
+When using a single configuration generator with CMake, set the appropriate build type when configuring the build.
+Likely, this build type will be either _Debug_ or _Release_, both of which are enumerated below in addition to using either GCC 10 or Clang 11.
+These examples also enable several helpful options to improve performance of the build and the resulting binaries.
+These examples assume you are in the top-level directory of the project.
+
+Release::
++
+--
+Configure a release build in the aptly named _build_ directory like so.
+
+GCC::
 +
 [source,sh]
 ----
-➜ cmake -GNinja -DCMAKE_BUILD_TYPE=Release -B build -S .
+➜ cmake \
+  -GNinja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_UNITY_BUILD=yes \
+  -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=gold" \
+  -DCMAKE_MODULE_LINKER_FLAGS="-fuse-ld=gold" \
+  -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=gold" \
+  -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=yes \
+  -B build -S .
 ----
 
-. Build the project with the build tool configured for CMake.
+Clang 11::
 +
+--
+[source,sh]
+----
+➜ cmake \
+  -GNinja \
+  -DCMAKE_C_COMPILER=/usr/bin/clang-11 \
+  -DCMAKE_CXX_COMPILER=/usr/bin/clang++-11 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_UNITY_BUILD=yes \
+  -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld" \
+  -DCMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld" \
+  -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld" \
+  -DCMAKE_INTERPROCEDURAL_OPTIMIZATION:BOOL=yes \
+  -B build -S .
+----
+
+NOTE: On Ubuntu 20.10, Clang 11 compiler front-ends are installed with the suffix `-11`.
+--
+--
+
+Debug::
++
+--
+To build in debug mode, set the build type appropriately, and enable `-gsplit-dwarf` while you're at it.
+
+GCC::
++
+[source,sh]
+----
+➜ cmake \
+  -GNinja \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_UNITY_BUILD=yes \
+  -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=gold" \
+  -DCMAKE_MODULE_LINKER_FLAGS="-fuse-ld=gold" \
+  -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=gold" \
+  -DCMAKE_C_FLAGS_DEBUG="-gsplit-dwarf" \
+  -DCMAKE_CXX_FLAGS_DEBUG="-gsplit-dwarf" \
+  -B build -S .
+----
+
+Clang 11::
++
+[source,sh]
+----
+➜ cmake \
+  -GNinja \
+  -DCMAKE_C_COMPILER=/usr/bin/clang-11 \
+  -DCMAKE_CXX_COMPILER=/usr/bin/clang++-11 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_UNITY_BUILD=yes \
+  -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld" \
+  -DCMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld" \
+  -DCMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld" \
+  -DCMAKE_C_FLAGS_DEBUG="-gsplit-dwarf" \
+  -DCMAKE_CXX_FLAGS_DEBUG="-gsplit-dwarf" \
+  -B build -S .
+----
+--
+
+Then build.
+
 [source,sh]
 ----
 ➜ cmake --build build
