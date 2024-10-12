@@ -47,7 +47,7 @@ Instructions are provided for the https://www.gnu.org/software/bash/[Bash], http
 +
 [,sh]
 ----
-git clone https://github.com/jwillikers/atoi.git
+git clone https://codeberg.org/jwillikers/atoi.git
 ----
 
 . Change into the project's directory.
