@@ -20,16 +20,16 @@ Install at least one of these compilers with the following commands.
 
 GCC 10::
 +
-[source,sh]
+[,sh]
 ----
-➜ sudo apt -y install gcc g++
+sudo apt -y install gcc g++
 ----
 
 Clang 11::
 +
-[source,sh]
+[,sh]
 ----
-➜ sudo apt -y install clang-11 lld
+sudo apt -y install clang-11 lld
 ----
 
 === asdf
@@ -45,30 +45,30 @@ Instructions are provided for the https://www.gnu.org/software/bash/[Bash], http
 
 . Clone the project's repository from GitHub.
 +
-[source,sh]
+[,sh]
 ----
-➜ git clone https://github.com/jwillikers/atoi.git
+git clone https://github.com/jwillikers/atoi.git
 ----
 
 . Change into the project's directory.
 +
-[source,sh]
+[,sh]
 ----
-➜ cd atoi
+cd atoi
 ----
 
 . Install the dependencies needed for asdf.
 +
-[source,sh]
+[,sh]
 ----
-➜ sudo apt -y install curl git
+sudo apt -y install curl git
 ----
 
 . Pull down the https://github.com/asdf-vm/asdf[asdf repository] in to your home directory.
 +
-[source,sh]
+[,sh]
 ----
-➜ git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 Cloning into '/home/ubuntu/.asdf'...
 remote: Enumerating objects: 145, done.
 remote: Counting objects: 100% (145/145), done.
@@ -83,9 +83,9 @@ Resolving deltas: 100% (3293/3293), done.
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ git -C ~/.asdf switch --detach (git -C ~/.asdf describe --abbrev=0 --tags)
+git -C ~/.asdf switch --detach (git -C ~/.asdf describe --abbrev=0 --tags)
 HEAD is now at c6145d0 Update version to 0.8.0
 ----
 
@@ -93,7 +93,7 @@ _Bash / ZSH_::
 +
 [source,bash]
 ----
-➜ git -C ~/.asdf switch --detach $(git -C ~/.asdf describe --abbrev=0 --tags)
+git -C ~/.asdf switch --detach $(git -C ~/.asdf describe --abbrev=0 --tags)
 HEAD is now at c6145d0 Update version to 0.8.0
 ----
 --
@@ -103,23 +103,23 @@ HEAD is now at c6145d0 Update version to 0.8.0
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ mkdir -p ~/.config/fish/conf.d; and echo "source ~/.asdf/asdf.fish" > ~/.config/fish/conf.d/asdf.fish
+mkdir -p ~/.config/fish/conf.d; and echo "source ~/.asdf/asdf.fish" > ~/.config/fish/conf.d/asdf.fish
 ----
 
 _Bash_::
 +
 [source,bash]
 ----
-➜ echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
 ----
 
 _ZSH_::
 +
 [source,zsh]
 ----
-➜ echo '. $HOME/.asdf/asdf.sh' >> ~/.zshrc
+echo '. $HOME/.asdf/asdf.sh' >> ~/.zshrc
 ----
 --
 
@@ -128,23 +128,23 @@ _ZSH_::
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 ----
 
 _Bash_::
 +
 [source,bash]
 ----
-➜ echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 ----
 
 _ZSH_::
 +
 [source,zsh]
 ----
-➜ echo -e 'fpath=(${ASDF_DIR}/completions $fpath)\nautoload -Uz compinit\ncompinit' >> ~/.zshrc
+echo -e 'fpath=(${ASDF_DIR}/completions $fpath)\nautoload -Uz compinit\ncompinit' >> ~/.zshrc
 ----
 --
 
@@ -153,31 +153,31 @@ _ZSH_::
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ exec fish
+exec fish
 ----
 
 _Bash_::
 +
 [source,bash]
 ----
-➜ source ~/.bashrc
+source ~/.bashrc
 ----
 
 _ZSH_::
 +
 [source,zsh]
 ----
-➜ source ~/.zshrc
+source ~/.zshrc
 ----
 --
 
 . Add the https://github.com/danhper/asdf-python[Python plugin] to asdf.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf plugin add python
+asdf plugin add python
 initializing plugin repository...
 Cloning into '/home/ubuntu/.asdf/repository'...
 remote: Enumerating objects: 2450, done.
@@ -188,9 +188,9 @@ Resolving deltas: 100% (1140/1140), done.
 
 . Install the necessary dependencies to build Python which are helpfully documented in the https://github.com/pyenv/pyenv/wiki#suggested-build-environment[Pyenv Wiki].
 +
-[source,sh]
+[,sh]
 ----
-➜ sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
+sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
   libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils \
   tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 ----
@@ -211,33 +211,33 @@ IMPORTANT: Whenever the user's global version of Python is updated, Pipenv must 
 This means that asdf won't be able to detect the system version of python.
 Install the Python package `python-is-python3` to install a `python` executable for the system which uses `python3`.
 
-[source,sh]
+[,sh]
 ----
-➜ sudo apt -y install python-is-python3
+sudo apt -y install python-is-python3
 ----
 --
 
 ... Install pip and venv because they are not installed by default on Ubuntu.
 +
-[source,sh]
+[,sh]
 ----
-➜ sudo apt -y install python3-pip python3-venv
+sudo apt -y install python3-pip python3-venv
 ----
 
 ... Set the user's Python to the system-wide version.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf global python system
+asdf global python system
 ----
 
 ** Or, you can use another version of Python for your user such as the latest and greatest version.
 
 ... Build and install the latest version of Python.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf install python latest
+asdf install python latest
 ----
 
 ... Set the user's Python to the latest version available at this time.
@@ -245,24 +245,24 @@ Install the Python package `python-is-python3` to install a `python` executable 
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf global python (asdf latest python)
+asdf global python (asdf latest python)
 ----
 
 _Bash / ZSH_::
 +
 [source,bash]
 ----
-➜ asdf global python $(asdf latest python)
+asdf global python $(asdf latest python)
 ----
 --
 
 . Install https://pipxproject.github.io/pipx/[pipx] for installing Pipenv in an isolated environment.
 +
-[source,sh]
+[,sh]
 ----
-➜ python -m pip install --user pipx
+python -m pip install --user pipx
 Collecting pipx
   Downloading pipx-0.15.6.0-py3-none-any.whl (43 kB)
      |████████████████████████████████| 43 kB 636 kB/s
@@ -288,9 +288,9 @@ Successfully installed argcomplete-1.12.1 packaging-20.4 pipx-0.15.6.0 pyparsing
 
 . Add the directory where pip installs executables for the local user to `PATH`.
 +
-[source,sh]
+[,sh]
 ----
-➜ python -m pipx ensurepath
+python -m pipx ensurepath
 Success! Added /home/ubuntu/.local/bin to the PATH environment
     variable.
 /home/ubuntu/.local/bin has been been added to PATH, but you need to
@@ -311,31 +311,31 @@ Otherwise pipx is ready to go! ✨ 🌟 ✨
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ exec fish
+exec fish
 ----
 
 _Bash_::
 +
 [source,bash]
 ----
-➜ source ~/.bashrc
+source ~/.bashrc
 ----
 
 _ZSH_::
 +
 [source,zsh]
 ----
-➜ source ~/.zshrc
+source ~/.zshrc
 ----
 --
 
 . Install Pipenv.
 +
-[source,sh]
+[,sh]
 ----
-➜ python -m pipx install pipenv
+python -m pipx install pipenv
   installed package pipenv 2020.8.13, Python 3.8.5
   These apps are now globally available
     - pipenv
@@ -348,52 +348,52 @@ done! ✨ 🌟 ✨
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ echo "eval (pipenv --completion)" > ~/.config/fish/completions/pipenv.fish
+echo "eval (pipenv --completion)" > ~/.config/fish/completions/pipenv.fish
 ----
 
 _Bash_::
 +
 [source,bash]
 ----
-➜ echo 'eval "$(pipenv --completion)"' >> ~/.bashrc
+echo 'eval "$(pipenv --completion)"' >> ~/.bashrc
 ----
 
 _ZSH_::
 +
 [source,zsh]
 ----
-➜ echo 'eval "$(pipenv --completion)"' >> ~/.zshrc
+echo 'eval "$(pipenv --completion)"' >> ~/.zshrc
 ----
 --
 
 . Add the asdf ccache plugin.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf plugin add ccache
+asdf plugin add ccache
 ----
 
 . Add the asdf CMake plugin.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf plugin add cmake
+asdf plugin add cmake
 ----
 
 . Add the asdf direnv plugin.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf plugin add direnv
+asdf plugin add direnv
 ----
 
 . Add the asdf Ninja plugin.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf plugin add ninja
+asdf plugin add ninja
 ----
 
 . Integrate direnv with your shell.
@@ -401,9 +401,9 @@ _ZSH_::
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ mkdir -p ~/.config/fish/conf.d; \
+mkdir -p ~/.config/fish/conf.d; \
   and echo "asdf exec direnv hook fish | source" > ~/.config/fish/conf.d/direnv.fish
 ----
 
@@ -411,14 +411,14 @@ _Bash_::
 +
 [source,bash]
 ----
-➜ echo 'eval "$(asdf exec direnv hook bash)"' >> ~/.bashrc
+echo 'eval "$(asdf exec direnv hook bash)"' >> ~/.bashrc
 ----
 
 _ZSH_::
 +
 [source,zsh]
 ----
-➜ echo 'eval "$(asdf exec direnv hook zsh)"' >> ~/.zshrc
+echo 'eval "$(asdf exec direnv hook zsh)"' >> ~/.zshrc
 ----
 --
 
@@ -427,9 +427,9 @@ _ZSH_::
 --
 _fish_::
 +
-[source,sh]
+[,sh]
 ----
-➜ mkdir -p ~/.config/direnv; \
+mkdir -p ~/.config/direnv; \
   and echo 'source "$(asdf direnv hook asdf)"' >> ~/.config/direnv/direnvrc
 ----
 
@@ -437,7 +437,7 @@ _Bash / ZSH_::
 +
 [source,bash]
 ----
-➜ mkdir -p ~/.config/direnv; \
+mkdir -p ~/.config/direnv; \
   echo 'source "$(asdf direnv hook asdf)"' >> ~/.config/direnv/direnvrc
 ----
 
@@ -446,16 +446,16 @@ NOTE: The `direnvrc` file should only use Bash syntax.
 
 . Install the project's asdf dependencies.
 +
-[source,sh]
+[,sh]
 ----
-➜ asdf install
+asdf install
 ----
 
 . Allow direnv to alter the environment for the project directory.
 +
-[source,sh]
+[,sh]
 ----
-➜ direnv allow
+direnv allow
 ----
 
 == Build
@@ -472,9 +472,9 @@ Configure a release build in the aptly named _build_ directory like so.
 
 GCC::
 +
-[source,sh]
+[,sh]
 ----
-➜ cmake \
+cmake \
   -GNinja \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_UNITY_BUILD=yes \
@@ -488,9 +488,9 @@ GCC::
 Clang 11::
 +
 --
-[source,sh]
+[,sh]
 ----
-➜ cmake \
+cmake \
   -GNinja \
   -DCMAKE_C_COMPILER=/usr/bin/clang-11 \
   -DCMAKE_CXX_COMPILER=/usr/bin/clang++-11 \
@@ -514,9 +514,9 @@ To build in debug mode, set the build type appropriately, and enable `-gsplit-dw
 
 GCC::
 +
-[source,sh]
+[,sh]
 ----
-➜ cmake \
+cmake \
   -GNinja \
   -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_UNITY_BUILD=yes \
@@ -530,9 +530,9 @@ GCC::
 
 Clang 11::
 +
-[source,sh]
+[,sh]
 ----
-➜ cmake \
+cmake \
   -GNinja \
   -DCMAKE_C_COMPILER=/usr/bin/clang-11 \
   -DCMAKE_CXX_COMPILER=/usr/bin/clang++-11 \
@@ -549,9 +549,9 @@ Clang 11::
 
 Then build.
 
-[source,sh]
+[,sh]
 ----
-➜ cmake --build build
+cmake --build build
 ----
 
 === Google Sanitizers
@@ -561,9 +561,9 @@ Set the `USE_SANITIZER` CMake variable to an appropriate value as documented htt
 
 Use the Address sanitizer like so.
 
-[source,sh]
+[,sh]
 ----
-➜ cmake -DUSE_SANITIZER=Address -B build -S .
+cmake -DUSE_SANITIZER=Address -B build -S .
 ----
 
 == Test
@@ -573,16 +573,16 @@ The unit tests can be run with https://cmake.org/cmake/help/latest/module/CTest.
 
 . Change in to the build directory.
 +
-[source,sh]
+[,sh]
 ----
-➜ cd build
+cd build
 ----
 
 . Run the tests by executing the `ctest` executable.
 
-[source,sh]
+[,sh]
 ----
-➜ ctest
+ctest
 ----
 
 == Format
@@ -592,9 +592,9 @@ The https://github.com/TheLartians/Format.cmake[Format.cmake] module provides bu
 
 Format the all source files by building the CMake target `fix-format`.
 
-[source,sh]
+[,sh]
 ----
-➜ cmake --build build --target fix-format
+cmake --build build --target fix-format
 ----
 
 == Contributing
@@ -633,7 +633,7 @@ The project's Code of Conduct is available in the link:CODE_OF_CONDUCT.adoc[] fi
 
 This repository is licensed under the https://www.gnu.org/licenses/gpl-3.0.html[GPLv3], available in the link:LICENSE.adoc[] file.
 
-© 2020 Jordan Williams
+© 2020-2024 Jordan Williams
 
 == Authors
 
